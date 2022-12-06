@@ -1,4 +1,4 @@
-package main.java.es.homeservices.models;
+package es.homeservices.models;
 
 import java.util.Date;
 
