@@ -1,59 +1,43 @@
-package es.homeservices.models;
+package es.homeservices.DTO;
 
-import javax.persistence.*;
+import es.homeservices.models.Location;
 import java.util.Date;
 
-@Entity
-@Table(name="\"User\"")
-public class User {
-    @Id
-    @GeneratedValue
-    private Long id;
-
+public class UserRequestDTO {
     private String name;
     private String cpf;
     private Date birthDate;
     private String email;
     private String cel;
-
-    @OneToOne
-    private Location location;
+    private String city;
+    private String neighborhood;
     private String pswd;
 
-    public User(String name, String cpf, String email, String pswd, String city, String neighBorhood) {
+    public String getCity() {
+        return city;
+    }
+
+    public UserRequestDTO(String name, String cpf, Date birthDate, String email, String cel, String city, String neighborhood, String pswd) {
         this.name = name;
         this.cpf = cpf;
+        this.birthDate = birthDate;
         this.email = email;
+        this.cel = cel;
+        this.city = city;
+        this.neighborhood = neighborhood;
         this.pswd = pswd;
-        this.location = new Location(city, neighBorhood);
     }
 
-    public User(String name, String cpf, String email, String pswd, Location location) {
-        this.name = name;
-        this.cpf = cpf;
-        this.email = email;
-        this.pswd = pswd;
-        this.location = location;
+    public void setCity(String city) {
+        this.city = city;
     }
 
-    public User() {
-
+    public String getNeighborhood() {
+        return neighborhood;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Location getLocation() {
-        return location;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
+    public void setNeighborhood(String neighborhood) {
+        this.neighborhood = neighborhood;
     }
 
     public String getName() {
