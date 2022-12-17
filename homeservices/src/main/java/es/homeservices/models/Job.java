@@ -32,7 +32,11 @@ public class Job {
 		this.location = location;
 		this.value = value;
 	}
-	
+
+	public Job() {
+
+	}
+
 	public Long getId() {
         return id;
     }
