@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import es.homeservices.models.Job;
+import es.homeservices.models.enumeration.Tag;
 import es.homeservices.repositories.JobRepository;
 
 @Service
@@ -20,6 +21,10 @@ public class JobServiceImpl implements JobService {
 	
 	public Collection<Job> listJobs() {
 		return this.jobRepository.getAll();
+	}
+	
+	public Tag[] listTags() {
+		return Tag.values();
 	}
 	
 }
