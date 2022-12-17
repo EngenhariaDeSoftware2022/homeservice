@@ -9,6 +9,7 @@ import { MyServicesComponent } from './my-services/my-services.component';
 import { NewServiceComponent } from './new-service/new-service.component';
 import { DetailedServiceComponent } from './detailed-service/detailed-service.component';
 import { AboutComponent } from './about/about.component';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -17,12 +18,14 @@ import { AboutComponent } from './about/about.component';
     MyServicesComponent,
     NewServiceComponent,
     DetailedServiceComponent,
-    AboutComponent
+    AboutComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NoopAnimationsModule
+    NoopAnimationsModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
