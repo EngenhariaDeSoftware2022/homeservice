@@ -115,9 +115,11 @@ public class UserJobServiceImpl implements UserJobService {
         Optional<UserJob> userJobOp = userJobRepository.findByUserId(userOp.get().getId());
         UserJob userJob = userJobOp.orElseThrow(() -> new UserJobNotFoundException(user.getId()));
 
-        DeletedJobResponseDTO deleted = new DeletedJobResponseDTO(user, userJob.getJob(jobId));
+        Job job = userJob.getJob(jobId);
+        DeletedJobResponseDTO deleted = new DeletedJobResponseDTO(user, job);
         userJob.deleteJob(jobId);
-
+        userJobRepository.save(userJob);
+        jobRepository.delete(job);
         return deleted;
     }
 }
