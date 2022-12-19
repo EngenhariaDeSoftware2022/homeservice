@@ -1,9 +1,6 @@
 package es.homeservices.services;
 
 import es.homeservices.DTO.*;
-import es.homeservices.models.Job;
-
-import java.util.List;
 
 public interface UserJobService {
 

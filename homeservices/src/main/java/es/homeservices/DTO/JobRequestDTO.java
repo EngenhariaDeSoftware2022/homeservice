@@ -1,9 +1,6 @@
 package es.homeservices.DTO;
 
-import es.homeservices.models.Location;
 import es.homeservices.models.enumeration.Tag;
-
-import javax.persistence.OneToOne;
 
 public class JobRequestDTO {
 

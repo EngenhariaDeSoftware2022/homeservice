@@ -28,7 +28,7 @@ public class Location {
         return city;
     }
 
-    public void setCity(String City) {
+    public void setCity(String city) {
         this.city = city;
     }
 

@@ -20,7 +20,7 @@ public class JobServiceImpl implements JobService {
 	}
 	
 	public Collection<Job> listJobs() {
-		return this.jobRepository.getAll();
+		return this.jobRepository.findAll();
 	}
 	
 	public Tag[] listTags() {

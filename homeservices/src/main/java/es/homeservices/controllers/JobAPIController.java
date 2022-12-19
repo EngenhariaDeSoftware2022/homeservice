@@ -1,12 +1,8 @@
 package es.homeservices.controllers;
 
-import es.homeservices.DTO.UserRequestDTO;
-import es.homeservices.DTO.UserResponseDTO;
 import es.homeservices.models.Job;
-import es.homeservices.models.User;
 import es.homeservices.models.enumeration.Tag;
 import es.homeservices.services.JobService;
-import es.homeservices.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

@@ -1,7 +1,5 @@
 package es.homeservices.models;
 
-import org.hibernate.sql.Insert;
-
 import javax.persistence.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -12,8 +10,10 @@ public class UserJob {
     @Id
     @GeneratedValue
     private Long userJobId;
+
     @OneToOne
     private User user;
+    
     @OneToMany
     @MapKeyColumn(name = "JobId")
     @Column(name = "Job")
