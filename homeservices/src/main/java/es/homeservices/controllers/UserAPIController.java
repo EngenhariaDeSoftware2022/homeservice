@@ -1,5 +1,6 @@
 package es.homeservices.controllers;
 
+import es.homeservices.DTO.UserDetailsDTO;
 import es.homeservices.DTO.UserRequestDTO;
 import es.homeservices.DTO.UserResponseDTO;
 import es.homeservices.models.User;
@@ -36,4 +37,9 @@ public class UserAPIController {
         return userService.getUser(cpf);
     }
 
+    @GetMapping
+    @ResponseStatus(HttpStatus.OK)
+    public UserDetailsDTO getUserDetailsByCPF(@RequestParam String cpf){
+        return userService.getUserDetails(cpf);
+    }
 }

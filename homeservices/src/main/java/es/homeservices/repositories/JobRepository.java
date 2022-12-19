@@ -1,12 +1,10 @@
 package es.homeservices.repositories;
 
-import java.util.Optional;
-import org.springframework.data.jpa.repository.JpaRepository;
-
 import es.homeservices.models.Job;
+import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.Optional;
 
 public interface JobRepository extends JpaRepository<Job, Long> {
-	
-    Optional<Job> findById(Long jobId);
-	
+  Optional<Job> findById(Long jobId);
+
 }
