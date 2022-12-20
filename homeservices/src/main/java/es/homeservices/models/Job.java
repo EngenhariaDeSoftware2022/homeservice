@@ -33,6 +33,9 @@ public class Job {
 		this.value = value;
 	}
 	
+	public Job() {
+	}
+	
 	public Long getId() {
         return id;
     }

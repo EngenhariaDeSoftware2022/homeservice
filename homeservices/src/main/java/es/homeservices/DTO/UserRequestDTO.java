@@ -1,6 +1,5 @@
 package es.homeservices.DTO;
 
-import es.homeservices.models.Location;
 import java.util.Date;
 
 public class UserRequestDTO {

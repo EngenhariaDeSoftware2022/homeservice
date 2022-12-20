@@ -21,4 +21,10 @@ public class ExceptionHandlerAdvice {
     public CustomResponseError handleAlreadyExists(EntityExistsException eee){
         return new CustomResponseError(eee.getMessage());
     }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public CustomResponseError handleInvalidInput(IllegalArgumentException iae){
+        return new CustomResponseError(iae.getMessage());
+    }
 }

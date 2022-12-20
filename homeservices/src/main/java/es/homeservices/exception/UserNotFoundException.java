@@ -1,7 +1,5 @@
 package es.homeservices.exception;
 
-import org.springframework.data.crossstore.ChangeSetPersister;
-
 import javax.persistence.EntityNotFoundException;
 
 public class UserNotFoundException extends EntityNotFoundException {
