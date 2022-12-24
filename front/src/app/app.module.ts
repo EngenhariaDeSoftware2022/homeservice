@@ -12,6 +12,10 @@ import { AboutComponent } from './about/about.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { OfereceServicoComponent } from './oferece-servico/oferece-servico.component';
+import { TelaServicoComponent } from './tela-servico/tela-servico.component';
 
 
 @NgModule({
@@ -22,6 +26,8 @@ import {MatIconModule} from '@angular/material/icon';
     NewServiceComponent,
     DetailedServiceComponent,
     AboutComponent,
+    OfereceServicoComponent,
+    TelaServicoComponent,
 
   ],
   imports: [
@@ -30,7 +36,9 @@ import {MatIconModule} from '@angular/material/icon';
     NoopAnimationsModule,
     MatCardModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatFormFieldModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
