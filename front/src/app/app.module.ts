@@ -15,6 +15,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { OfereceServicoComponent } from './oferece-servico/oferece-servico.component';
+import { TelaServicoComponent } from './tela-servico/tela-servico.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { OfereceServicoComponent } from './oferece-servico/oferece-servico.compo
     DetailedServiceComponent,
     AboutComponent,
     OfereceServicoComponent,
+    TelaServicoComponent,
 
   ],
   imports: [

@@ -7,6 +7,8 @@ import { MyServicesComponent } from './my-services/my-services.component';
 import { NewServiceComponent } from './new-service/new-service.component';
 import { AboutComponent } from './about/about.component';
 import { OfereceServicoComponent } from './oferece-servico/oferece-servico.component';
+import { TelaServicoComponent } from './tela-servico/tela-servico.component';
+
 
 
 const routes: Routes = [
@@ -34,6 +36,10 @@ const routes: Routes = [
     path: 'oferece-servico',
     component: OfereceServicoComponent
   },
+  {
+  path: 'servico',
+  component: TelaServicoComponent
+},
 ];
 
 @NgModule({

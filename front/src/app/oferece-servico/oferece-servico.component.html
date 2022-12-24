@@ -1,11 +1,13 @@
 <h1 class="titulo">Ofereça um serviço!</h1>
 <div id="container">
+  
 <mat-card class="example-card">
   <mat-card-content>
 
   <div class="container-form">
   <form class="example-form">
   <table class="example-full-width" cellspacing="0"><tr>
+  <div class="container-form1">
   <td><mat-form-field class="example-full-width">
     <mat-label>Serviço:</mat-label>
     <input matInput size="10">
@@ -16,17 +18,26 @@
     <mat-option value="option">Option</mat-option>
   </mat-select>
 </mat-form-field></td>
+</div>
 </tr></table>
+
+<div class="container-form-middle">
 <mat-form-field class="example-full-width">
 <mat-label>Escreva uma descrição...:</mat-label>
 <input matInput #message maxlength="256">
 </mat-form-field>
+
 <br>
+
 <mat-form-field class="example-full-width">
 <mat-label>Contato:</mat-label>
 <input matInput #message maxlength="256">
 </mat-form-field>
+
 <br>
+</div>
+
+<div class="container-form1">
 <table class="example-full-width" cellspacing="0"><tr>
 <td><mat-form-field class="example-full-width">
   <mat-label>Valor:</mat-label>
@@ -38,12 +49,18 @@
   <mat-option value="option">Option</mat-option>
 </mat-select>
 </mat-form-field></td>
-</tr></table>
+</tr></table></div>
 </form>
 </div>
-  <mat-card>
-      <img mat-card-md-image src="https://material.angular.io/assets/img/examples/shiba2.jpg">
-  </mat-card>
+<div class="container-image-all">
+  <img class="container-image" mat-card-md-image src="./assets/images/faxina.jpg">
+  <div class="container-images">
+    <img class="container-images" src="./assets/images/faxina.jpg" alt="image 1">
+    <img class="container-images" src="./assets/images/faxina.jpg" alt="image 2">
+    <img class="container-images" src="./assets/images/faxina.jpg" alt="image 3">
+  </div>
+</div>
+
 
   </mat-card-content>
   <div class="container-button-group">
@@ -54,6 +71,7 @@
     </mat-card-actions>
   </mat-card-footer>
 </div>
+
 
 
 
