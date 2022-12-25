@@ -12,6 +12,11 @@ import { AboutComponent } from './about/about.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { LoginComponent } from './login/login.component';
+
+
 
 
 @NgModule({
@@ -22,6 +27,7 @@ import {MatIconModule} from '@angular/material/icon';
     NewServiceComponent,
     DetailedServiceComponent,
     AboutComponent,
+    LoginComponent,
 
   ],
   imports: [
@@ -30,7 +36,9 @@ import {MatIconModule} from '@angular/material/icon';
     NoopAnimationsModule,
     MatCardModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatInputModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]

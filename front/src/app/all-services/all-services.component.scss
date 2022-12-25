@@ -1,0 +1,101 @@
+.titulo {
+    text-align: center;
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 5%;
+    margin-bottom: 5%;
+}
+
+.card-1 {
+    width: 60%;
+    background-color: #7E57C2;
+    border-radius: 3%;
+    padding: 8%;
+
+}
+
+.card-2 {
+    width: 60%;
+    background-color: #7E57C2;
+    border-radius: 3%;
+    padding: 8%;
+
+
+}
+.card-3 {
+    width: 60%;
+    background-color: #7E57C2;
+    border-radius: 3%;
+    padding: 8%;
+
+}
+
+.card-4 {
+    width: 60%;
+    background-color: #7E57C2;
+    border-radius: 3%;
+    padding: 8%;
+
+
+
+}
+.card-5 {
+    width: 60%;
+    background-color: #7E57C2;
+    border-radius: 3%;
+    padding: 8%;
+
+}
+.card-6 {
+    width: 60%;
+    background-color: #7E57C2;
+    border-radius: 3%;
+    padding: 8%;
+
+
+}
+.card-7 {
+    width: 60%;
+    background-color: #7E57C2;
+    border-radius: 3%;
+    padding: 8%;
+
+
+}
+.card-8 {
+    width: 60%;
+    background-color: #7E57C2;
+    border-radius: 3%;
+    padding: 8%;
+}
+
+#container {
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 50px;
+    padding-left: 5%;
+}
+
+.botao1 {
+    width: 90px;
+    height: 30px;
+    border-radius: 10px;
+    border-color: #1DE9B6;
+    background-color: #4527A0;
+    margin-top: 10%;
+}
+
+.btn8 {
+    background-color:#EF5350;
+    
+}
+
+.barra {
+    background-color: #eeeeee;
+    width: 60%;
+    margin-left: 20%;
+    margin-bottom: 5%;
+
+}
+

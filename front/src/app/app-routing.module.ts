@@ -6,6 +6,7 @@ import { DetailedServiceComponent } from './detailed-service/detailed-service.co
 import { MyServicesComponent } from './my-services/my-services.component';
 import { NewServiceComponent } from './new-service/new-service.component';
 import { AboutComponent } from './about/about.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {
@@ -28,6 +29,11 @@ const routes: Routes = [
     path: 'about',
     component: AboutComponent
   },
+  {
+    path: 'login',
+    component: LoginComponent
+
+  }
 ];
 
 @NgModule({
