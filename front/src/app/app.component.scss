@@ -1,0 +1,101 @@
+mat-toolbar {
+    height: 5vh;
+    background-color: white;
+}
+
+mat-drawer-container {
+    height: 100vh;
+    background-color: white;
+}
+
+mat-drawer {
+    width: 18vw;
+    border-radius: 0px 5px 5px 0px;
+    background-color: #4527A0;
+}
+
+mat-drawer-content {
+    background-color: white;
+}
+
+#btn-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.drawer-btn{
+    width: 80%;
+    height: 50px;
+    margin: 10%;
+    border-radius: 10px;
+    border-color: #1DE9B6;
+    background-color: #4527A0;
+}
+
+.drawer-btn:hover{
+    cursor: pointer;
+    border: #14d6a5 solid 1px;
+    background: #3d238f;
+}
+
+.btn-content{
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 50px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #1DE9B6;
+}
+
+.drawer-btn-clicked{
+    width: 80%;
+    height: 50px;
+    margin: 10%;
+    border-radius: 10px;
+    background-color: #1DE9B6;
+}
+
+.btn-content-clicked{
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 50px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #4527A0;
+}
+
+.drawer-btn-clicked:hover{
+    cursor: pointer;
+    background: #14d6a5;
+    border: #3d238f solid 1px;
+}
+
+.login-header{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: end;
+    width: 100%;
+    
+}
+
+.user-pfp {
+    height: 5%;
+    width: 5%;
+    border-radius: 100%;
+    background-color: #4527A0;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+.login-btn{
+    margin-bottom: 10px;
+    background-color: #4527A0;
+    border-radius: 50px;
+    width: 12%;
+}
