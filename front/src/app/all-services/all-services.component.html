@@ -1,14 +1,30 @@
 <h1 class="titulo"></h1>
-<mat-form-field class="barra" appearance="fill">
-  <mat-label>Digite aqui</mat-label>
-  <input matInput>
-</mat-form-field>
-
-<input class="search-bar" type="text">
+<!-- 
+<input matSuffix class="search-bar" type="text">
+<mat-icon matPrefix class="search-icon" aria-hidden="false" >search</mat-icon> -->
+<div class="filter-search-container">
+  <mat-form-field class="search-bar" color="black">
+    <mat-icon
+      class="search-icon"
+      matPrefix
+      mat-icon-search
+      >search</mat-icon>
+    <input matInput />
+  </mat-form-field>
+  
+  <button class="filter-btn">
+    <div class="filter-btn-content">
+      <div class="filter-btn-text">
+        Filtrar por
+      </div>
+      <mat-icon>filter_list</mat-icon>
+    </div>
+  </button>
+</div>
 
 <div id="container">
   <mat-card class="card-1">
-    <img src="./assets/images/faxina.jpg">
+    <img style="max-width: 100%;" src="./assets/images/faxina.jpg">
     <mat-card-content>
     <p>faxina
     </p>
@@ -16,7 +32,7 @@
   </mat-card-content>
 </mat-card>
 <mat-card class="card-2">
-  <img src="./assets/images/montador.jpg">
+  <img style="max-width: 100%;" src="./assets/images/montador.jpg">
   <mat-card-content>
     <p>montagem de móveis
     </p>
@@ -24,7 +40,7 @@
   </mat-card-content>
 </mat-card>
 <mat-card class="card-3">
-  <img src="./assets/images/encanador.jpg">
+  <img style="max-width: 100%;" src="./assets/images/encanador.jpg">
   <mat-card-content>
     <p>encanador
     </p>
@@ -34,7 +50,7 @@
  
 </mat-card>
 <mat-card class="card-4">
-  <img src="./assets/images/montador.jpg">
+  <img style="max-width: 100%;" src="./assets/images/montador.jpg">
   <mat-card-content>
     <p>montagem de móveis
     </p>
@@ -42,7 +58,7 @@
   </mat-card-content>
 </mat-card>
 <mat-card class="card-5">
-  <img src="./assets/images/faxina.jpg">
+  <img style="max-width: 100%;" src="./assets/images/faxina.jpg">
   <mat-card-content>
     <p>faxina
     </p>
@@ -50,7 +66,7 @@
   </mat-card-content>
 </mat-card>
 <mat-card class="card-6">
-  <img src="./assets/images/montador.jpg">
+  <img style="max-width: 100%;" src="./assets/images/montador.jpg">
   <mat-card-content>
     <p>montagem de móveis
     </p>
@@ -60,7 +76,7 @@
 
 </mat-card>
 <mat-card class="card-7">
-  <img src="./assets/images/encanador.jpg">
+  <img style="max-width: 100%;" src="./assets/images/encanador.jpg">
   <mat-card-content>
     <p>encanador
     </p>
@@ -68,7 +84,7 @@
   </mat-card-content>
 </mat-card>
 <mat-card class="card-8">
-  <img src="./assets/images/montador.jpg">
+  <img style="max-width: 100%;" src="./assets/images/montador.jpg">
   <mat-card-content>
     <p>montagem de móveis
     </p>

@@ -81,21 +81,21 @@ mat-drawer-content {
     align-items: flex-end;
     justify-content: end;
     width: 100%;
-    
 }
 
 .user-pfp {
     height: 5%;
     width: 5%;
+    max-width: 100%;
     border-radius: 100%;
     background-color: #4527A0;
-    margin-top: 20px;
-    margin-right: 20px;
+    margin: 20px;
+    margin-top: 10vh;
 }
 
 .login-btn{
-    margin-bottom: 10px;
     background-color: #4527A0;
     border-radius: 50px;
     width: 12%;
+    margin: 30px;
 }
