@@ -15,8 +15,9 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { LoginComponent } from './login/login.component';
-
-
+import { MatSelectModule } from '@angular/material/select';
+import { OfereceServicoComponent } from './oferece-servico/oferece-servico.component';
+import { TelaServicoComponent } from './tela-servico/tela-servico.component';
 
 
 @NgModule({
@@ -28,6 +29,8 @@ import { LoginComponent } from './login/login.component';
     DetailedServiceComponent,
     AboutComponent,
     LoginComponent,
+    OfereceServicoComponent,
+    TelaServicoComponent,
 
   ],
   imports: [
@@ -38,7 +41,8 @@ import { LoginComponent } from './login/login.component';
     MatButtonModule,
     MatIconModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
