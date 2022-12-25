@@ -18,6 +18,8 @@ import { LoginComponent } from './login/login.component';
 import { MatSelectModule } from '@angular/material/select';
 import { OfereceServicoComponent } from './oferece-servico/oferece-servico.component';
 import { TelaServicoComponent } from './tela-servico/tela-servico.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+
 
 
 @NgModule({
@@ -42,7 +44,8 @@ import { TelaServicoComponent } from './tela-servico/tela-servico.component';
     MatIconModule,
     MatInputModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]

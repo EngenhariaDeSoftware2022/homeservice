@@ -1,6 +1,19 @@
-<mat-card class="tela">
-    <mat-form-field>
-        <mat-label>Email</mat-label>
-        <input>
+<mat-drawer-container class="example-container">
+    <h1 class="titulo"> Login </h1>
+    <h4 class="subtitulo"> Preencha com seus dados.</h4>
+    <mat-drawer class="sidenav" mode="side" opened >
+        <h2 class="ola"> Olá, bem vindo de volta!</h2>
+    </mat-drawer>
+    <mat-form-field class="email" color="black">
+        <mat-label> <mat-icon class="icon-email"> email</mat-icon> Email</mat-label>
+        <input matInput placeholder="Ex. rai@example.com" value="">
     </mat-form-field>
-</mat-card>
+    <mat-form-field class="password" color="black">
+        <mat-label> <mat-icon class="icon-password"> vpn_key</mat-icon> Password</mat-label>
+        <input matInput placeholder="*****" value="">
+    </mat-form-field>
+    <button mat-raised-button class="btn-login">Entrar</button>
+</mat-drawer-container>
+
+
+
