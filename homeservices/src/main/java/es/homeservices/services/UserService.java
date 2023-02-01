@@ -14,4 +14,6 @@ public interface UserService {
     UserResponseDTO getUser(String cpf);
 
     UserDetailsDTO getUserDetails(String cpf);
+
+    UserResponseDTO deleteUser(User user);
 }

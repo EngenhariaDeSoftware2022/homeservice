@@ -28,6 +28,13 @@ public class User {
         this.location = new Location(city, neighBorhood);
     }
 
+    public User(String name, String cpf, String email, String pswd) {
+        this.name = name;
+        this.cpf = cpf;
+        this.email = email;
+        this.pswd = pswd;
+    }
+
     public User(String name, String cpf, String email, String pswd, Location location) {
         this.name = name;
         this.cpf = cpf;

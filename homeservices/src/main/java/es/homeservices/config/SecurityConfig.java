@@ -1,6 +1,7 @@
 package es.homeservices.config;
 
 import es.homeservices.services.JpaUserDetailsService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -19,6 +20,7 @@ public class SecurityConfig {
     private final JwtAuthenticationFilter jwtAuthFilter;
     private final AuthenticationProvider authenticationProvider;
 
+    @Autowired
     public SecurityConfig(JpaUserDetailsService jpaUserDetailsService, JwtAuthenticationFilter jwtAuthFilter, AuthenticationProvider authenticationProvider) {
         this.jpaUserDetailsService = jpaUserDetailsService;
         this.jwtAuthFilter = jwtAuthFilter;
@@ -31,8 +33,9 @@ public class SecurityConfig {
                 csrf()
                 .disable()
                 .authorizeHttpRequests()
-                .requestMatchers("")
-                .permitAll()
+                .antMatchers("/api/auth/**").permitAll()
+                .antMatchers("/listJobs").permitAll()
+                .antMatchers("/listTags").permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()

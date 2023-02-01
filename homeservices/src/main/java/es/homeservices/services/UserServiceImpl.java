@@ -73,6 +73,12 @@ public class UserServiceImpl implements UserService{
         return new UserDetailsDTO(user);
     }
 
+    @Override
+    public UserResponseDTO deleteUser(User user) {
+        userRepository.delete(user);
+        return new UserResponseDTO(user);
+    }
+
     private boolean validateCPF(String cpf){
         if(cpf == null)
             return false;

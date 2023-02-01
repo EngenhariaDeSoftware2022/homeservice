@@ -1,5 +1,6 @@
 package es.homeservices;
 
+import es.homeservices.auth.AuthenticationService;
 import es.homeservices.models.Location;
 import es.homeservices.models.User;
 import es.homeservices.repositories.JobRepository;
@@ -10,10 +11,12 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import java.util.Date;
 
 @SpringBootApplication(scanBasePackages = "es.homeservices")
+@EnableJpaRepositories(basePackageClasses = UserRepository.class)
 public class HomeservicesApplication {
 
 	public static void main(String[] args) {
@@ -24,7 +27,8 @@ public class HomeservicesApplication {
 	CommandLineRunner commandLineRunner(UserRepository userRep,
 										JobRepository jobRep,
 										UserJobRepository userJobRep,
-										LocationRepository locRep){
+										LocationRepository locRep,
+										AuthenticationService authService){
 		Location location1 = new Location(
 				"c. grande",
 				"universitario"
@@ -59,8 +63,8 @@ public class HomeservicesApplication {
 		return args -> {
 			locRep.save(location1);
 			locRep.save(location2);
-			userRep.save(user1);
-			userRep.save(user2);
+			authService.register(user1);
+			authService.register(user2);
 		};
 	}
 }

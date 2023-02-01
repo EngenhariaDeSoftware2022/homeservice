@@ -63,10 +63,46 @@ public class UserJobServiceImpl implements UserJobService {
     }
 
     @Override
+    public JobResponseDTO createJob(User user, JobRequestDTO jobDTO) {
+
+        Location location = new Location(jobDTO.getCity(), jobDTO.getNeighborhood());
+        locationRepository.save(location);
+
+        Job job = new Job(
+                jobDTO.getTitle(),
+                jobDTO.getDescription(),
+                jobDTO.getCel(),
+                location,
+                jobDTO.getValue()
+        );
+        jobRepository.save(job);
+
+        Optional<UserJob> userJobOp = userJobRepository.findByUserId(user.getId());
+        if(userJobOp.isPresent()) {
+            userJobOp.get().addJob(job);
+            userJobRepository.save(userJobOp.get());
+        } else {
+            UserJob userJob = new UserJob(user);
+            userJob.addJob(job);
+            userJobRepository.save(userJob);
+        }
+        return new JobResponseDTO(job);
+    }
+
+    @Override
     public JobListResponseDTO listUserJob(String cpf) {
         Optional<User> userOp = userRepository.findBycpf(cpf);
         User user = userOp.orElseThrow(() -> new UserNotFoundException(cpf));
 
+        Optional<UserJob> userJobOp = userJobRepository.findByUserId(user.getId());
+        UserJob userJob = userJobOp.orElseThrow(() -> new UserJobNotFoundException(user.getId()));
+        return new JobListResponseDTO(new ArrayList<Job>(userJob.getJobs().values()));
+    }
+
+    @Override
+    public JobListResponseDTO listUserJob(User user) {
+        //needs to return an empty list instead of exception
+        // if the userJob isn't created yet
         Optional<UserJob> userJobOp = userJobRepository.findByUserId(user.getId());
         UserJob userJob = userJobOp.orElseThrow(() -> new UserJobNotFoundException(user.getId()));
         return new JobListResponseDTO(new ArrayList<Job>(userJob.getJobs().values()));
