@@ -36,6 +36,12 @@ public class SecurityConfig {
                 .antMatchers("/api/auth/**").permitAll()
                 .antMatchers("/listJobs").permitAll()
                 .antMatchers("/listTags").permitAll()
+                .antMatchers("/v2/api-docs",
+                        "/swagger-resources/**",
+                        "/swagger-ui.html",
+                        "/swagger-ui/**",
+                        "/webjars/**" ,
+                        /*Probably not needed*/ "/swagger.json").permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
