@@ -5,7 +5,7 @@ import java.util.Date;
 public class UserRequestDTO {
     private String name;
     private String cpf;
-    private Date birthDate;
+    private String birthDate;
     private String email;
     private String cel;
     private String city;
@@ -16,7 +16,7 @@ public class UserRequestDTO {
         return city;
     }
 
-    public UserRequestDTO(String name, String cpf, Date birthDate, String email, String cel, String city, String neighborhood, String pswd) {
+    public UserRequestDTO(String name, String cpf, String birthDate, String email, String cel, String city, String neighborhood, String pswd) {
         this.name = name;
         this.cpf = cpf;
         this.birthDate = birthDate;
@@ -55,11 +55,11 @@ public class UserRequestDTO {
         this.cpf = cpf;
     }
 
-    public Date getBirthDate() {
+    public String getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(String birthDate) {
         this.birthDate = birthDate;
     }
 

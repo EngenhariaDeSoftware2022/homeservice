@@ -47,6 +47,7 @@ public class HomeservicesApplication {
 				"012345678910",
 				"pedro.cabral",
 				"pass",
+				"123141441",
 				location1
 
 		);
@@ -56,6 +57,7 @@ public class HomeservicesApplication {
 				"109876543210",
 				"pedro.rafael",
 				"pass",
+				"124241643",
 				location2
 		);
 

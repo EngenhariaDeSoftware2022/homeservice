@@ -35,7 +35,7 @@ public class User {
         this.pswd = pswd;
     }
 
-    public User(String name, String cpf, String email, String pswd, Location location) {
+    public User(String name, String cpf, String email, String pswd, String cel, Location location) {
         this.name = name;
         this.cpf = cpf;
         this.email = email;

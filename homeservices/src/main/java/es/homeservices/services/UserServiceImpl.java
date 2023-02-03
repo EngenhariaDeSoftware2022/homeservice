@@ -4,6 +4,7 @@ import es.homeservices.DTO.UserDetailsDTO;
 import es.homeservices.DTO.UserRequestDTO;
 import es.homeservices.DTO.UserResponseDTO;
 import es.homeservices.exception.CpfInvalidException;
+import es.homeservices.exception.DateFormatException;
 import es.homeservices.exception.UserExistsException;
 import es.homeservices.exception.UserNotFoundException;
 import es.homeservices.models.Location;
@@ -13,6 +14,9 @@ import es.homeservices.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.regex.Pattern;
@@ -33,11 +37,16 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public UserResponseDTO registerUser(UserRequestDTO userRequestDTO) {
-        Optional<User> userOp = userRepository.findBycpf(userRequestDTO.getCpf());
-        userOp.ifPresent(user ->{
+    public User registerUser(UserRequestDTO userRequestDTO)  {
+        Optional<User> userOpCpf = userRepository.findBycpf(userRequestDTO.getCpf());
+        userOpCpf.ifPresent(user ->{
             throw new UserExistsException(userRequestDTO.getCpf());
         });
+        Optional<User> userOpEmail = userRepository.findByEmail(userRequestDTO.getEmail());
+        userOpEmail.ifPresent(user ->{
+            throw new UserExistsException(userRequestDTO.getEmail());
+        });
+
         if(!validateCPF(userRequestDTO.getCpf()))
             throw new CpfInvalidException(userRequestDTO.getCpf());
 
@@ -48,10 +57,22 @@ public class UserServiceImpl implements UserService{
                 userRequestDTO.getCpf(),
                 userRequestDTO.getEmail(),
                 userRequestDTO.getPswd(),
+                userRequestDTO.getCel(),
                 location
         );
+        if (userRequestDTO.getBirthDate() != null){
+            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+            try {
+                Date date = formatter.parse(userRequestDTO.getBirthDate());
+                user.setBirthDate(date);
+            }
+            catch (ParseException e){
+                throw new DateFormatException(userRequestDTO.getBirthDate());
+            }
+        }
+
         userRepository.save(user);
-        return new UserResponseDTO(user);
+        return user;
     }
 
     @Override
@@ -66,6 +87,8 @@ public class UserServiceImpl implements UserService{
         return new UserResponseDTO(user);
     }
 
+
+
     @Override
     public UserDetailsDTO getUserDetails(String cpf) {
         Optional<User> userOp = userRepository.findBycpf(cpf);
@@ -77,6 +100,11 @@ public class UserServiceImpl implements UserService{
     public UserResponseDTO deleteUser(User user) {
         userRepository.delete(user);
         return new UserResponseDTO(user);
+    }
+
+    @Override
+    public UserDetailsDTO getPrincipalDetails(User user) {
+        return new UserDetailsDTO(user);
     }
 
     private boolean validateCPF(String cpf){

@@ -1,14 +1,18 @@
 package es.homeservices.auth;
 
+import es.homeservices.DTO.UserRequestDTO;
 import es.homeservices.models.SecurityUser;
 import es.homeservices.models.User;
 import es.homeservices.repositories.UserRepository;
 import es.homeservices.services.JwtService;
+import es.homeservices.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.text.ParseException;
 
 @Service
 public class AuthenticationService {
@@ -20,22 +24,21 @@ public class AuthenticationService {
     private final JwtService jwtService;
 
     private final AuthenticationManager authenticationManager;
+
+    private final UserService userService;
     @Autowired
-    public AuthenticationService(UserRepository repository, PasswordEncoder passwordEncoder, JwtService jwtService, AuthenticationManager authenticationManager) {
+    public AuthenticationService(UserRepository repository, PasswordEncoder passwordEncoder, JwtService jwtService, AuthenticationManager authenticationManager, UserService userService) {
         this.repository = repository;
         this.passwordEncoder = passwordEncoder;
         this.jwtService = jwtService;
         this.authenticationManager = authenticationManager;
+        this.userService = userService;
     }
 
-    public AuthenticationResponse register(RegisterRequest request) {
-        User user = new User(
-                request.getName(),
-                request.getCpf(),
-                request.getEmail(),
-                passwordEncoder.encode(request.getPassword())
-        );
-        repository.save(user);
+    public AuthenticationResponse register(UserRequestDTO userRequestDTO) throws ParseException {
+
+        userRequestDTO.setPswd(passwordEncoder.encode(userRequestDTO.getPswd()));
+        User user = userService.registerUser(userRequestDTO);
 
         String jwtToken = jwtService.generateToken(new SecurityUser(user));
         return new AuthenticationResponse(jwtToken);

@@ -26,18 +26,26 @@ public class UserAPIController {
         return userService.listUsers();
     }
 
+    /*
     @PutMapping(value = "/createUser")
     @ResponseStatus(HttpStatus.OK)
     public UserResponseDTO createUser(@RequestBody UserRequestDTO userRequestDTO){
         UserResponseDTO userResponseDTO = userService.registerUser(userRequestDTO);
         return userResponseDTO;
-    }
+    }*/
 
     @GetMapping(value = "/getUser")
     @ResponseStatus(HttpStatus.OK)
     public UserResponseDTO getUserByCPF(@RequestParam String cpf){
         return userService.getUser(cpf);
     }
+
+    @GetMapping(value = "/getCurrentLoggedInDetails")
+    @ResponseStatus(HttpStatus.OK)
+    public UserDetailsDTO getCurrentLoggedInUserDetails(@AuthenticationPrincipal SecurityUser securityUser){
+        return userService.getPrincipalDetails(securityUser.getUser());
+    }
+
 
     @GetMapping("/getUserDetails")
     @ResponseStatus(HttpStatus.OK)
