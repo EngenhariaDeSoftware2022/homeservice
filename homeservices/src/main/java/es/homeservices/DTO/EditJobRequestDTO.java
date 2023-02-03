@@ -5,7 +5,6 @@ import es.homeservices.models.enumeration.Tag;
 public class EditJobRequestDTO {
 
     private Long jobId;
-    private String userCpf;
     private String title;
     private String description;
     private Tag tag;
@@ -14,9 +13,8 @@ public class EditJobRequestDTO {
     private String neighborhood;
     private double value;
 
-    public EditJobRequestDTO(Long jobId, String userCpf, String title, String description, Tag tag, String cel, String city, String neighborhood, double value) {
+    public EditJobRequestDTO(Long jobId, String title, String description, Tag tag, String cel, String city, String neighborhood, double value) {
         this.jobId = jobId;
-        this.userCpf = userCpf;
         this.title = title;
         this.description = description;
         this.tag = tag;
@@ -24,14 +22,6 @@ public class EditJobRequestDTO {
         this.city = city;
         this.neighborhood = neighborhood;
         this.value = value;
-    }
-
-    public String getUserCpf() {
-        return userCpf;
-    }
-
-    public void setUserCpf(String userCpf) {
-        this.userCpf = userCpf;
     }
 
     public String getTitle() {

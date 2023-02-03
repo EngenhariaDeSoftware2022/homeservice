@@ -3,8 +3,6 @@ package es.homeservices.DTO;
 import es.homeservices.models.enumeration.Tag;
 
 public class JobRequestDTO {
-
-    private String userCpf;
     private String title;
     private String description;
     private Tag tag;
@@ -13,8 +11,7 @@ public class JobRequestDTO {
     private String neighborhood;
     private double value;
 
-    public JobRequestDTO(String userCpf, String title, String description, Tag tag, String cel, String city, String neighborhood, double value) {
-        this.userCpf = userCpf;
+    public JobRequestDTO(String title, String description, Tag tag, String cel, String city, String neighborhood, double value) {
         this.title = title;
         this.description = description;
         this.tag = tag;
@@ -22,14 +19,6 @@ public class JobRequestDTO {
         this.city = city;
         this.neighborhood = neighborhood;
         this.value = value;
-    }
-
-    public String getUserCpf() {
-        return userCpf;
-    }
-
-    public void setUserCpf(String userCpf) {
-        this.userCpf = userCpf;
     }
 
     public String getTitle() {

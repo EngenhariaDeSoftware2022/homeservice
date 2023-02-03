@@ -1,6 +1,7 @@
 package es.homeservices.controllers;
 
 import es.homeservices.DTO.*;
+import es.homeservices.models.Job;
 import es.homeservices.models.SecurityUser;
 import es.homeservices.services.UserJobService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,19 +32,22 @@ public class UserJobController {
 
     @PatchMapping(value = "/editJob")
     @ResponseStatus(HttpStatus.OK)
-    public JobResponseDTO editJob(@RequestBody EditJobRequestDTO EditJobDTO){
-        return userJobService.editJob(EditJobDTO);
+    public JobResponseDTO editJob(@AuthenticationPrincipal SecurityUser securityUser,
+                                  @RequestBody EditJobRequestDTO EditJobDTO){
+        return userJobService.editJob(securityUser.getUser(), EditJobDTO);
     }
 
     @GetMapping(value = "/getJob")
     @ResponseStatus(HttpStatus.OK)
-    public SingleJobResponseDTO getUserJob(@RequestParam String cpf, Long jobId){
-        return userJobService.getUserJob(cpf, jobId);
+    public Job getUserJob(@AuthenticationPrincipal SecurityUser securityUser,
+                          @RequestParam Long jobId){
+        return userJobService.getUserJob(securityUser.getUser(), jobId);
     }
 
     @DeleteMapping(value = "/deleteJob")
     @ResponseStatus(HttpStatus.OK)
-    public DeletedJobResponseDTO deleteJob(@RequestParam String cpf, Long jobId){
-        return userJobService.deleteJob(cpf, jobId);
+    public DeletedJobResponseDTO deleteJob(@AuthenticationPrincipal SecurityUser securityUser,
+                                           @RequestParam Long jobId){
+        return userJobService.deleteJob(securityUser.getUser(), jobId);
     }
 }
