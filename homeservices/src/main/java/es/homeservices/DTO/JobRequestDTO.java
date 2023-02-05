@@ -11,10 +11,10 @@ public class JobRequestDTO {
     private String neighborhood;
     private double value;
 
-    public JobRequestDTO(String title, String description, Tag tag, String cel, String city, String neighborhood, double value) {
+    public JobRequestDTO(String title, String description, String tag, String cel, String city, String neighborhood, double value) {
         this.title = title;
         this.description = description;
-        this.tag = tag;
+        this.tag = Tag.valueOf(tag);
         this.cel = cel;
         this.city = city;
         this.neighborhood = neighborhood;

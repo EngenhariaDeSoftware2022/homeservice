@@ -33,6 +33,15 @@ public class Job {
 		this.value = value;
 	}
 
+	public Job(String title, String description, String cel, Location location, double value, Tag tag) {
+		this.title = title;
+		this.description = description;
+		this.cel = cel;
+		this.location = location;
+		this.value = value;
+		this.tag = tag;
+	}
+
 	public Job() {
 
 	}
@@ -68,7 +77,7 @@ public class Job {
 	public void setTag(Tag tag) {
 		this.tag = tag;
 	}
-	
+
 	public String getCel() {
 		return this.cel;
 	}

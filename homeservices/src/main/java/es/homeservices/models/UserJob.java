@@ -19,13 +19,13 @@ public class UserJob {
     @Column(name = "Job")
     private Map<Long, Job> jobs;
 
+
     public UserJob(User user) {
         this.user = user;
         this.jobs = new HashMap<Long, Job>();
     }
 
     public UserJob() {
-
     }
 
     public User getUser() {
@@ -55,4 +55,5 @@ public class UserJob {
     public void deleteJob(Long jobId) {
         this.jobs.remove(jobId);
     }
+
 }

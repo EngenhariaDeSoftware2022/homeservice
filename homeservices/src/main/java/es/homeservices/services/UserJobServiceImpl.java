@@ -44,7 +44,8 @@ public class UserJobServiceImpl implements UserJobService {
                 jobDTO.getDescription(),
                 jobDTO.getCel(),
                 location,
-                jobDTO.getValue()
+                jobDTO.getValue(),
+                jobDTO.getTag()
         );
         jobRepository.save(job);
 
