@@ -26,5 +26,9 @@ public class JobServiceImpl implements JobService {
 	public Tag[] listTags() {
 		return Tag.values();
 	}
+
+	public Collection<Job> filterJobsByTag(Tag tag) {
+		return this.jobRepository.findByTag(tag);
+	}
 	
 }

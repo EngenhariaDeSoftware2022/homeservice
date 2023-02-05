@@ -10,5 +10,7 @@ public interface JobService {
 	Collection<Job> listJobs();
 	
 	Tag[] listTags();
+
+	Collection<Job> filterJobsByTag(Tag tag);
 	
 }
