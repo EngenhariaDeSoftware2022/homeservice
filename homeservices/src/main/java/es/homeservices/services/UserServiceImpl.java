@@ -79,7 +79,7 @@ public class UserServiceImpl implements UserService{
         return new UserResponseDTO(user);
     }
 
-    private boolean validateCPF(String cpf){
+    boolean validateCPF(String cpf){
         if(cpf == null)
             return false;
         if(cpf.length() != 11)

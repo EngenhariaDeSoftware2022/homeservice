@@ -27,6 +27,8 @@ public class UserRequestDTO {
         this.pswd = pswd;
     }
 
+    public UserRequestDTO(){}
+
     public void setCity(String city) {
         this.city = city;
     }

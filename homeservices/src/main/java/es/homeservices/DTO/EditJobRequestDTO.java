@@ -26,6 +26,8 @@ public class EditJobRequestDTO {
         this.value = value;
     }
 
+    public EditJobRequestDTO(){}
+
     public String getUserCpf() {
         return userCpf;
     }
