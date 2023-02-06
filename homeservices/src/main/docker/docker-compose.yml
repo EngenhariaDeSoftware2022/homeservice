@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    restart: always
+    image: 'pedroaires/homeservices:latest'
+    ports:
+      - 8080:8080
+    container_name: app
+    depends_on:
+      - db          
+  db:
+    image: postgres:15.1-alpine
+    restart: always
+    ports:
+      - 5432:5432
+    container_name: db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1234
