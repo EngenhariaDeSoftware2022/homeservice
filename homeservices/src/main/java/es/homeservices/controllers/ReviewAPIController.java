@@ -30,7 +30,7 @@ public class ReviewAPIController {
         return jobReviewService.addReview(securityUser.getUser(), reviewDTO);
     }
 
-    @PostMapping(value = "/editReview")
+    @PatchMapping(value = "/editReview")
     @ResponseStatus(HttpStatus.OK)
     public ReviewResponseDTO editReview(@AuthenticationPrincipal SecurityUser securityUser,
                                         @RequestBody EditReviewDTO reviewDTO){

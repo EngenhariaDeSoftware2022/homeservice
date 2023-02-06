@@ -34,9 +34,6 @@ public class JobReviewServiceImpl implements JobReviewService{
     private ReviewRepository reviewRepository;
 
     @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
     private JobRepository jobRepository;
 
 
