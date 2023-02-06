@@ -36,7 +36,6 @@ public class JobAPIController {
                                      @RequestBody List<String> strTags){
 
         List<Tag> tags = jobService.stringToEnum(strTags);
-        System.out.println(tags);
         return jobService.searchByTitle(title, tags);
     }
 

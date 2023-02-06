@@ -38,7 +38,13 @@ public class JobServiceImpl implements JobService {
 
 	@Override
 	public JobListResponseDTO searchByTitle(String title, List<Tag> tags) {
-		List<Job> jobs = jobRepository.findByTitleIgnoreCase(title);
+		List<Job> jobs = new ArrayList<>();
+		if(title.isEmpty()){
+			jobs = jobRepository.findAll();
+		}
+		else{
+			jobs = jobRepository.findByTitleIgnoreCase(title);
+		}
 
 		if (!tags.isEmpty()){
 			List<Job> filteredJobs = new ArrayList<Job>();
