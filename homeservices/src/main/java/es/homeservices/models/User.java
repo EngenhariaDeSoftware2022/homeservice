@@ -2,6 +2,7 @@ package es.homeservices.models;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Objects;
 
 @Entity
 @Table(name="\"User\"")
@@ -109,5 +110,18 @@ public class User {
 
     public void setPswd(String pswd) {
         this.pswd = pswd;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(id, user.id) && Objects.equals(name, user.name) && Objects.equals(cpf, user.cpf) && Objects.equals(email, user.email) && Objects.equals(pswd, user.pswd);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, cpf, email, pswd);
     }
 }

@@ -11,7 +11,7 @@ public class Review {
     private String comment;
     private Integer score;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.REMOVE})
     private User user;
 
     public Review() {}

@@ -4,7 +4,6 @@ public class EditReviewDTO {
     
     private Long idJob;
     private Long idReview;
-
     private Integer score;
     private String coments;
 

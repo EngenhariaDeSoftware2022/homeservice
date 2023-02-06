@@ -3,25 +3,14 @@ package es.homeservices.DTO;
 public class ReviewRequestDTO {
     
     private Long idJob;
-    private String cpfUser;
-
     private Integer score;
     private String comment;
 
 
-    public ReviewRequestDTO(String cpfUser, Long idJob, String comment, Integer score) {
-        this.cpfUser = cpfUser;
+    public ReviewRequestDTO(Long idJob, String comment, Integer score) {
         this.idJob = idJob;
         this.comment = comment;
         this.score = score;
-    }
-
-    public String getCpfUser() {
-        return cpfUser;
-    }
-
-    public void setCpfUser(String cpfUser) {
-        this.cpfUser = cpfUser;
     }
 
     public Long getIdJob() {

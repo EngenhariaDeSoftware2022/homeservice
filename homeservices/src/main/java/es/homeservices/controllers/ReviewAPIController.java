@@ -1,5 +1,8 @@
 package es.homeservices.controllers;
 
+import es.homeservices.models.SecurityUser;
+import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import es.homeservices.DTO.EditReviewDTO;
@@ -22,23 +25,25 @@ public class ReviewAPIController {
 
     @PostMapping(value = "/addReview")
     @ResponseStatus(HttpStatus.OK)
-    public ReviewResponseDTO addReview(@RequestBody ReviewRequestDTO reviewDTO){
-        return jobReviewService.addReview(reviewDTO);
+    public ReviewResponseDTO addReview(@AuthenticationPrincipal SecurityUser securityUser,
+                                       @RequestBody ReviewRequestDTO reviewDTO){
+        return jobReviewService.addReview(securityUser.getUser(), reviewDTO);
     }
 
     @PostMapping(value = "/editReview")
     @ResponseStatus(HttpStatus.OK)
-    public ReviewResponseDTO editReview(@RequestBody EditReviewDTO reviewDTO){
-        return jobReviewService.editReview(reviewDTO);
+    public ReviewResponseDTO editReview(@AuthenticationPrincipal SecurityUser securityUser,
+                                        @RequestBody EditReviewDTO reviewDTO){
+        return jobReviewService.editReview(securityUser.getUser(), reviewDTO);
     }
 
-    @PostMapping(value = "/listReview")
+    @GetMapping(value = "/listReview")
     @ResponseStatus(HttpStatus.OK)
-    public List<Review> listReviews(@RequestParam Long idJob){
+    public List<ReviewResponseDTO> listReviews(@RequestParam Long idJob){
         return jobReviewService.listReview(idJob);
     }
 
-    @PostMapping(value = "/listComments")
+    @GetMapping(value = "/listComments")
     @ResponseStatus(HttpStatus.OK)
     public List<String> listComments(@RequestParam Long idJob){
         return jobReviewService.listComments(idJob);
