@@ -1,0 +1,23 @@
+<h1 class="titulo"></h1>
+<!--
+<input matSuffix class="search-bar" type="text">
+<mat-icon matPrefix class="search-icon" aria-hidden="false" >search</mat-icon> -->
+<h1 class="titulo">Meus Serviços</h1>
+<div id="container">
+  <ul *ngFor="let service of myServices">
+    <mat-card class="card">
+      <img style="max-width: 100%;" src="./assets/images/{{service.title}}.jpg">
+      <mat-card-content>
+      <p>{{service.title}}
+      </p>
+      <div class="buttons-container">
+        <button class="botao1">R${{ service.value}}</button>
+        <button mat-fab color="warn" class="btn-delete" (click)="delete(service.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+
+    </mat-card-content>
+  </mat-card>
+  </ul>
+</div>

@@ -1,0 +1,19 @@
+<div class="service-container">
+  <div class="card-service">
+    <div class="left-block">
+      <div class="img-wrapper">
+        <img src="./assets/images/{{service.title}}.jpg" alt="">
+      </div>
+      <div class="giver-container">
+        <p class="font-class">Nome do Prestador: {{userLoggedIn.name}}</p>
+        <p class="font-class">Email: {{userLoggedIn.email}}</p>
+      </div>
+    </div>
+    <div class="right-block">
+      <p class="title">{{service.title}}</p>
+      <p class="description">{{service.description}}</p>
+      <p class="description">Contato: {{userLoggedIn.cel}}</p>
+      <p class="description">Valor: R${{service.value}}</p>
+    </div>
+  </div>
+</div>
