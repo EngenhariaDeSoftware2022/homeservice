@@ -23,50 +23,5 @@ public class HomeservicesApplication {
 		SpringApplication.run(HomeservicesApplication.class, args);
 	}
 
-	@Bean
-	CommandLineRunner commandLineRunner(UserRepository userRep,
-										JobRepository jobRep,
-										UserJobRepository userJobRep,
-										LocationRepository locRep,
-										AuthenticationService authService){
-		Location location1 = new Location(
-				"c. grande",
-				"universitario"
 
-		);
-
-		Location location2 = new Location(
-				"patos",
-				"qualquerbairro"
-
-		);
-
-
-		User user1 = new User(
-				"Aires",
-				"012345678910",
-				"pedro.cabral",
-				"pass",
-				"123141441",
-				location1
-
-		);
-
-		User user2 = new User(
-				"Rafael",
-				"109876543210",
-				"pedro.rafael",
-				"pass",
-				"124241643",
-				location2
-		);
-
-// (String name, String cpf, String email, String pswd, String city, String neighBorhood)
-		return args -> {
-			locRep.save(location1);
-			locRep.save(location2);
-			authService.register(user1);
-			authService.register(user2);
-		};
-	}
 }

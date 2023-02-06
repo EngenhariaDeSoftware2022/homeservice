@@ -61,8 +61,8 @@ public class JobServiceImpl implements JobService {
 	@Override
 	public List<Tag> stringToEnum(List<String> strTags){
 		List<Tag> tags = new ArrayList<Tag>();
-		//if(strTags == null || strTags.isEmpty())
-		//	return tags;
+		if(strTags == null || strTags.isEmpty())
+			return tags;
 
 		for (String s : strTags){
 			tags.add(Tag.valueOf(s));
