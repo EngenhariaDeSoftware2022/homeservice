@@ -1,7 +1,6 @@
 package es.homeservices.controllers;
 
 import es.homeservices.DTO.JobListResponseDTO;
-import es.homeservices.DTO.SingleJobResponseDTO;
 import es.homeservices.models.Job;
 import es.homeservices.models.enumeration.Tag;
 import es.homeservices.services.JobService;

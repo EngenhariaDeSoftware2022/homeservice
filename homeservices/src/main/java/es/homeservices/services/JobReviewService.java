@@ -4,14 +4,15 @@ import java.util.List;
 
 import es.homeservices.DTO.EditReviewDTO;
 import es.homeservices.DTO.ReviewRequestDTO;
+import es.homeservices.DTO.ReviewListResponseDTO;
 import es.homeservices.DTO.ReviewResponseDTO;
-import es.homeservices.models.Review;
+import es.homeservices.models.User;
 
 public interface JobReviewService {
 
-    ReviewResponseDTO addReview(ReviewRequestDTO reviewDTO);
+    ReviewResponseDTO addReview(User user, ReviewRequestDTO reviewDTO);
 
-    List<Review> listReview(Long idJob);
+    ReviewListResponseDTO listReview(Long idJob);
 
     List<String> listComments(Long idJob);
 

@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import es.homeservices.DTO.EditReviewDTO;
 import es.homeservices.DTO.ReviewRequestDTO;
 import es.homeservices.DTO.ReviewResponseDTO;
-import es.homeservices.exception.UserNotFoundException;
+import es.homeservices.DTO.ReviewListResponseDTO;
 import es.homeservices.exception.JobNotFoundException;
 import es.homeservices.exception.JobReviewNotFoundException;
 import es.homeservices.exception.ReviewNotFoundException;
@@ -22,7 +22,6 @@ import es.homeservices.models.User;
 import es.homeservices.repositories.JobRepository;
 import es.homeservices.repositories.JobReviewRepository;
 import es.homeservices.repositories.ReviewRepository;
-import es.homeservices.repositories.UserRepository;
 
 @Service
 public class JobReviewServiceImpl implements JobReviewService{
@@ -34,17 +33,11 @@ public class JobReviewServiceImpl implements JobReviewService{
     private ReviewRepository reviewRepository;
 
     @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
     private JobRepository jobRepository;
 
 
     @Override
-    public ReviewResponseDTO addReview(ReviewRequestDTO reviewDTO) {
-        Optional<User> userOp = userRepository.findBycpf(reviewDTO.getCpfUser());
-        User user = userOp.orElseThrow(() -> new UserNotFoundException(reviewDTO.getCpfUser()));
-
+    public ReviewResponseDTO addReview(User user, ReviewRequestDTO reviewDTO) {
         Optional<Job> jobOp = jobRepository.findById(reviewDTO.getIdJob());
         Job job = jobOp.orElseThrow(() -> new JobNotFoundException(reviewDTO.getIdJob()));
 
@@ -67,14 +60,14 @@ public class JobReviewServiceImpl implements JobReviewService{
     }
 
     @Override
-    public List<Review> listReview(Long idJob) {
+    public ReviewListResponseDTO listReview(Long idJob) {
         Optional<Job> jobOp = jobRepository.findById(idJob);
         Job job = jobOp.orElseThrow(() -> new JobNotFoundException(idJob));
 
         Optional<JobReview> jobReviewOp = jobReviewRepository.findByJob(job);
         JobReview jobReview = jobReviewOp.orElseThrow(() -> new JobReviewNotFoundException(idJob));
 
-        return jobReview.getReviews();
+        return new ReviewListResponseDTO(jobReview.getReviews());
     }
 
     @Override

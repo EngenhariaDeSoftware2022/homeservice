@@ -6,8 +6,6 @@ import es.homeservices.models.User;
 
 public interface UserJobService {
 
-    //JobResponseDTO createJob(JobRequestDTO jobDTO);
-
     JobResponseDTO createJob(User user, JobRequestDTO jobDTO);
 
     JobListResponseDTO listUserJob(User user);
