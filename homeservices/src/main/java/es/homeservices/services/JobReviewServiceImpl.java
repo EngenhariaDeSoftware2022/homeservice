@@ -6,12 +6,12 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.stereotype.Service;
 
 import es.homeservices.DTO.EditReviewDTO;
 import es.homeservices.DTO.ReviewRequestDTO;
 import es.homeservices.DTO.ReviewResponseDTO;
-import es.homeservices.DTO.ReviewListResponseDTO;
 import es.homeservices.exception.JobNotFoundException;
 import es.homeservices.exception.JobReviewNotFoundException;
 import es.homeservices.exception.ReviewNotFoundException;
@@ -55,19 +55,23 @@ public class JobReviewServiceImpl implements JobReviewService{
         jobReview.addReview(review);
 
         jobReviewRepository.save(jobReview);
-        
+
         return new ReviewResponseDTO(user.getName(), review.getScore(), review.getComment());
     }
 
     @Override
-    public ReviewListResponseDTO listReview(Long idJob) {
+    public List<ReviewResponseDTO> listReview(Long idJob) {
         Optional<Job> jobOp = jobRepository.findById(idJob);
         Job job = jobOp.orElseThrow(() -> new JobNotFoundException(idJob));
 
         Optional<JobReview> jobReviewOp = jobReviewRepository.findByJob(job);
         JobReview jobReview = jobReviewOp.orElseThrow(() -> new JobReviewNotFoundException(idJob));
 
-        return new ReviewListResponseDTO(jobReview.getReviews());
+        List<ReviewResponseDTO> reviewsDTO = new ArrayList<>();
+        for(Review r : jobReview.getReviews()){
+            reviewsDTO.add(new ReviewResponseDTO(r));
+        }
+        return reviewsDTO;
     }
 
     @Override
@@ -82,7 +86,7 @@ public class JobReviewServiceImpl implements JobReviewService{
     }
 
     @Override
-    public ReviewResponseDTO editReview(EditReviewDTO reviewDTO) {
+    public ReviewResponseDTO editReview(User user, EditReviewDTO reviewDTO) throws AccessDeniedException {
         Optional<Job> jobOp = jobRepository.findById(reviewDTO.getIdJob());
         Job job = jobOp.orElseThrow(() -> new JobNotFoundException(reviewDTO.getIdJob()));
 
@@ -91,13 +95,15 @@ public class JobReviewServiceImpl implements JobReviewService{
 
         Optional<Review> reviewOp = reviewRepository.findById(reviewDTO.getIdReview());
         Review review = reviewOp.orElseThrow(() -> new ReviewNotFoundException(reviewDTO.getIdReview()));
+        if(!review.getUser().equals(user))
+            throw new AccessDeniedException("User cannot edit this review");
         review.setComment(reviewDTO.getComents());
         review.setScore(reviewDTO.getScore());
 
         jobReviewRepository.save(jobReview);
 
 
-        return new ReviewResponseDTO(review.getUser().getName(), review.getScore(), review.getComment());
+        return new ReviewResponseDTO(review.getId(), review.getUser().getName(), review.getScore(), review.getComment());
     }
 
 

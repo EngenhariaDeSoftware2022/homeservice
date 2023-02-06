@@ -1,5 +1,8 @@
 package es.homeservices.controllers;
 
+import es.homeservices.models.SecurityUser;
+import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import es.homeservices.DTO.EditReviewDTO;
@@ -31,13 +34,15 @@ public class ReviewAPIController {
 
     @PatchMapping(value = "/editReview")
     @ResponseStatus(HttpStatus.OK)
-    public ReviewResponseDTO editReview(@RequestBody EditReviewDTO reviewDTO){
-        return jobReviewService.editReview(reviewDTO);
+    public ReviewResponseDTO editReview(@AuthenticationPrincipal SecurityUser securityUser,
+                                        @RequestBody EditReviewDTO reviewDTO){
+        return jobReviewService.editReview(securityUser.getUser(), reviewDTO);
     }
 
     @GetMapping(value = "/listReview")
     @ResponseStatus(HttpStatus.OK)
-    public ReviewListResponseDTO listReviews(@RequestParam Long idJob){
+    public List<ReviewResponseDTO> listReviews(@RequestParam Long idJob){
+
         return jobReviewService.listReview(idJob);
     }
 
