@@ -1,0 +1,156 @@
+.titulo {
+    text-align: center;
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 5%;
+    margin-bottom: 5%;
+}
+
+.card {
+    width: 60%;
+    background-color: #7E57C2;
+    border-radius: 3%;
+    padding: 8%;
+
+}
+
+.card-2 {
+    width: 60%;
+    background-color: #7E57C2;
+    border-radius: 3%;
+    padding: 8%;
+
+
+}
+.card-3 {
+    width: 60%;
+    background-color: #7E57C2;
+    border-radius: 3%;
+    padding: 8%;
+
+}
+
+.card-4 {
+    width: 60%;
+    background-color: #7E57C2;
+    border-radius: 3%;
+    padding: 8%;
+
+
+
+}
+.card-5 {
+    width: 60%;
+    background-color: #7E57C2;
+    border-radius: 3%;
+    padding: 8%;
+
+}
+.card-6 {
+    width: 60%;
+    background-color: #7E57C2;
+    border-radius: 3%;
+    padding: 8%;
+
+
+}
+.card-7 {
+    width: 60%;
+    background-color: #7E57C2;
+    border-radius: 3%;
+    padding: 8%;
+
+
+}
+.card-8 {
+    width: 60%;
+    background-color: #7E57C2;
+    border-radius: 3%;
+    padding: 8%;
+}
+
+#container {
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 50px;
+    padding-left: 5%;
+}
+
+.botao1 {
+    width: 90px;
+    height: 30px;
+    border-radius: 10px;
+    border-color: #1DE9B6;
+    background-color: #4527A0;
+    margin-top: 10%;
+}
+
+.btn8 {
+    background-color:#EF5350;
+
+}
+
+
+.filter-search-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 3vw;
+}
+
+.search-bar{
+    box-sizing: border-box;
+
+    width: 70%;
+    height: 5%;
+    padding-bottom: 0;
+
+    background: #F5F5F5;
+    border: 1px solid #E0E0E0;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    color: black
+}
+
+.search-icon {
+    color: #4527A0;
+    margin: 10px;
+}
+
+.filter-btn {
+    margin: 10px;
+    background-color: #1DE9B6;
+    border: none;
+    height: 6vh;
+    border-radius: 5px;
+    width: 15%;
+    font-weight: 600;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.filter-btn-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.filter-btn-text{
+    margin-top: 5px;
+    font-size: 15px;
+}
+
+::ng-deep .search-bar .mat-form-field-underline {
+    display: none;
+}
+
+
+::ng-deep .search-bar .mat-form-field-infix{
+    border-top: none;
+    bottom: 0.5vh;
+}
+
+::ng-deep .search-bar .mat-form-field-wrapper{
+    margin-bottom: -1.25em;
+ }

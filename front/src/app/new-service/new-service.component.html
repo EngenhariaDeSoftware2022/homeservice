@@ -1,0 +1,69 @@
+<div class="container-service">
+  <div class="card-wrapper">
+    <div class="img-container">
+      <img src="./assets/images/{{choosedImg}}.jpg">
+      <div class="choice-image">
+        <div class="img-wrapper">
+          <img src="./assets/images/encanador.jpg" (click)="this.choosedImg='encanador'">
+        </div>
+        <div class="img-wrapper">
+          <img src="./assets/images/faxina.jpg" (click)="this.choosedImg='faxina'">
+        </div>
+        <div class="img-wrapper">
+          <img src="./assets/images/montador.jpg" (click)="this.choosedImg='montador'">
+        </div>
+      </div>
+    </div>
+    <div class="inputs-container" [formGroup]="newServiceForm">
+      <div class="inputs-row">
+        <mat-form-field appearance="fill">
+          <mat-label>Serviço</mat-label>
+          <input matInput type="text" formControlName="title">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Tag</mat-label>
+          <mat-select formControlName="tag">
+            <mat-option *ngFor="let tag of tags" [value]="tag">
+              {{tag}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="inputs-row">
+        <mat-form-field appearance="fill">
+          <mat-label>Descrição</mat-label>
+          <input matInput type="text" formControlName="description">
+        </mat-form-field>
+      </div>
+      <div class="inputs-row">
+        <mat-form-field appearance="fill">
+          <mat-label>Contato</mat-label>
+          <input matInput type="tel" formControlName="cel">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Valor</mat-label>
+          <input matInput type="text" formControlName="value">
+        </mat-form-field>
+      </div>
+      <div class="inputs-row">
+        <mat-form-field appearance="fill">
+          <mat-label>Bairro</mat-label>
+          <input matInput type="text" formControlName="neighborhood">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Cidade</mat-label>
+          <input matInput type="text" formControlName="city">
+        </mat-form-field>
+      </div>
+      <div class="buttons-row">
+        <div class="btn-wrapper">
+          <button mat-raised-button color="primary" (click)="save()">Salvar</button>
+        </div>
+        <div class="btn-wrapper">
+          <button mat-raised-button color="warn">Cancelar</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

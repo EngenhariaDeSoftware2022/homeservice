@@ -1,0 +1,45 @@
+<mat-drawer-container class="example-container">
+    <mat-drawer mode="side" opened *ngIf="this.isUserLoggedIn">
+        <img height="30%" width="100%"  style="margin-bottom: -20px; max-width: 100%;" src="./assets/images/logo.png"/>
+
+        <div id="btn-container">
+            <button [ngClass]="{'drawer-btn-clicked': currentPage === 'all-services'}" class="drawer-btn" id="all-services-btn" (click)="toggleSelection('all-services')">
+                <a routerLink="/all-services" class="btn-content" [ngClass]="{'btn-content-clicked': currentPage === 'all-services'}">
+                    Contrate um serviço
+                </a>
+            </button>
+
+            <button [ngClass]="{'drawer-btn-clicked': currentPage === 'new-service'}" class="drawer-btn" id="new-service" (click)="toggleSelection('new-service')">
+                <a routerLink="/new-service" class="btn-content" [ngClass]="{'btn-content-clicked': currentPage === 'new-service'}">
+                    Ofereça um serviço
+                </a>
+            </button>
+
+            <button [ngClass]="{'drawer-btn-clicked': currentPage === 'my-services'}" class="drawer-btn" id="my-services" (click)="toggleSelection('my-services')">
+                <a routerLink="/my-services" class="btn-content" [ngClass]="{'btn-content-clicked': currentPage === 'my-services'}">
+                    Meus serviços
+                </a>
+            </button>
+
+            <button [ngClass]="{'drawer-btn-clicked': currentPage === 'about'}" class="drawer-btn" id="about" (click)="toggleSelection('about')">
+                <a routerLink="/about" class="btn-content" [ngClass]="{'btn-content-clicked': currentPage === 'about'}">
+                    Sobre
+                </a>
+            </button>
+
+        </div>
+    </mat-drawer>
+
+    <mat-drawer-content>
+        <mat-toolbar>
+            <div class="login-header">
+                <img class="user-pfp" *ngIf="isUserLoggedIn" src="https://www.freepnglogos.com/uploads/man-png/man-attitude-pro-9.png" alt="">
+
+                <button class="login-btn" *ngIf="isUserLoggedIn" mat-raised-button (click)="logout()" [routerLink]="''">Sair</button>
+
+
+            </div>
+        </mat-toolbar>
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container>

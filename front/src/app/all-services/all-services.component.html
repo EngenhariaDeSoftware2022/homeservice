@@ -1,0 +1,37 @@
+<h1 class="titulo"></h1>
+<!--
+<input matSuffix class="search-bar" type="text">
+<mat-icon matPrefix class="search-icon" aria-hidden="false" >search</mat-icon> -->
+<div class="filter-search-container" [formGroup]="searchText">
+  <mat-form-field class="search-bar" color="black">
+    <mat-icon
+      class="search-icon"
+      matPrefix
+      mat-icon-search
+      >search</mat-icon>
+    <input matInput formControlName="searchText"/>
+  </mat-form-field>
+
+  <button class="filter-btn" (click)="filter()">
+    <div class="filter-btn-content">
+      <div class="filter-btn-text">
+        Filtrar
+      </div>
+      <mat-icon>filter_list</mat-icon>
+    </div>
+  </button>
+</div>
+
+<div id="container">
+
+  <ul *ngFor="let service of servicesView">
+    <mat-card class="card">
+      <img style="max-width: 100%;" src="./assets/images/{{service.title}}.jpg">
+      <mat-card-content>
+      <p>{{service.title}}
+      </p>
+      <button class="botao1" (click)="showServiceDetails(service.id)">R${{service.value}}</button>
+    </mat-card-content>
+  </mat-card>
+  </ul>
+</div>
