@@ -8,13 +8,15 @@ import org.springframework.web.bind.annotation.*;
 import es.homeservices.DTO.EditReviewDTO;
 import es.homeservices.DTO.ReviewRequestDTO;
 import es.homeservices.DTO.ReviewResponseDTO;
+import es.homeservices.DTO.ReviewListResponseDTO;
 import es.homeservices.services.JobReviewService;
-import es.homeservices.models.Review;
+import es.homeservices.models.SecurityUser;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 
 @RestController
 @RequestMapping(path = "/api")
@@ -40,6 +42,7 @@ public class ReviewAPIController {
     @GetMapping(value = "/listReview")
     @ResponseStatus(HttpStatus.OK)
     public List<ReviewResponseDTO> listReviews(@RequestParam Long idJob){
+
         return jobReviewService.listReview(idJob);
     }
 

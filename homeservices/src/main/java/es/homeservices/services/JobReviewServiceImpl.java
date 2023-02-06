@@ -22,7 +22,6 @@ import es.homeservices.models.User;
 import es.homeservices.repositories.JobRepository;
 import es.homeservices.repositories.JobReviewRepository;
 import es.homeservices.repositories.ReviewRepository;
-import es.homeservices.repositories.UserRepository;
 
 @Service
 public class JobReviewServiceImpl implements JobReviewService{

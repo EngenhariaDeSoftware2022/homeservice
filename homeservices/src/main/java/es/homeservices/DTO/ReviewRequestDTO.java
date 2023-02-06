@@ -3,6 +3,7 @@ package es.homeservices.DTO;
 public class ReviewRequestDTO {
     
     private Long idJob;
+
     private Integer score;
     private String comment;
 

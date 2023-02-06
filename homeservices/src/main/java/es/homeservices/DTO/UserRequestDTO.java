@@ -1,7 +1,5 @@
 package es.homeservices.DTO;
 
-import java.util.Date;
-
 public class UserRequestDTO {
     private String name;
     private String cpf;
