@@ -15,48 +15,40 @@ import { AppComponent } from './app.component';
 
 
 const routes: Routes = [
-  {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: 'login'
-  },
-  {
-    path: 'login',
-    component: LoginComponent,
-  },
+  
   {
     path: 'all-services',
-    canActivate: [AuthGuard],
+    
     component: AllServicesComponent
   },
   {
     path: 'detailed-service',
-    canActivate: [AuthGuard],
+    
     component: DetailedServiceComponent
   },
   {
     path: 'my-services',
-    canActivate: [AuthGuard],
+    
     component: MyServicesComponent
   },
   {
     path: 'new-service',
-    canActivate: [AuthGuard],
+    
     component: NewServiceComponent
   },
   {
     path: 'about',
-    canActivate: [AuthGuard],
+    
     component: AboutComponent
   },
   {
     path: 'oferece-servico',
-    canActivate: [AuthGuard],
+    
     component: OfereceServicoComponent
   },
   {
   path:'servico',
-  canActivate: [AuthGuard],
+  
   component: TelaServicoComponent
   },
 ];

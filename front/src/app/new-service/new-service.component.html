@@ -16,11 +16,11 @@
     </div>
     <div class="inputs-container" [formGroup]="newServiceForm">
       <div class="inputs-row">
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="outline">
           <mat-label>Serviço</mat-label>
           <input matInput type="text" formControlName="title">
         </mat-form-field>
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="outline">
           <mat-label>Tag</mat-label>
           <mat-select formControlName="tag">
             <mat-option *ngFor="let tag of tags" [value]="tag">
@@ -30,27 +30,27 @@
         </mat-form-field>
       </div>
       <div class="inputs-row">
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="outline">
           <mat-label>Descrição</mat-label>
           <input matInput type="text" formControlName="description">
         </mat-form-field>
       </div>
       <div class="inputs-row">
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="outline">
           <mat-label>Contato</mat-label>
           <input matInput type="tel" formControlName="cel">
         </mat-form-field>
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="outline">
           <mat-label>Valor</mat-label>
           <input matInput type="text" formControlName="value">
         </mat-form-field>
       </div>
       <div class="inputs-row">
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="outline">
           <mat-label>Bairro</mat-label>
           <input matInput type="text" formControlName="neighborhood">
         </mat-form-field>
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="outline">
           <mat-label>Cidade</mat-label>
           <input matInput type="text" formControlName="city">
         </mat-form-field>

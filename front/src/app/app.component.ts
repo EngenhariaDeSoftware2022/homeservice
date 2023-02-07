@@ -8,7 +8,7 @@ import { AuthService } from './services/auth.service';
 })
 export class AppComponent {
   title = 'front';
-  currentPage: string = "about"
+  currentPage: string = ""
   isUserLoggedIn: boolean = true
 
   @ViewChild('btn-container') input:any;
