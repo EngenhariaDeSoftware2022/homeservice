@@ -9,7 +9,7 @@ import { AuthService } from './services/auth.service';
 export class AppComponent {
   title = 'front';
   currentPage: string = ""
-  isUserLoggedIn: boolean = true
+  isUserLoggedIn: boolean = false
 
   @ViewChild('btn-container') input:any;
 

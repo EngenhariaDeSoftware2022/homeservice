@@ -1,5 +1,9 @@
-<mat-drawer-container class="example-container">
-    <mat-drawer mode="side" opened *ngIf="this.isUserLoggedIn">
+<div *ngIf="!this.isUserLoggedIn">
+    <app-login></app-login>
+</div>
+
+<mat-drawer-container class="example-container" *ngIf="this.isUserLoggedIn">
+    <mat-drawer mode="side" opened>
         <img height="30%" width="100%"  style="margin-bottom: -20px; max-width: 100%;" src="./assets/images/logo.png"/>
 
         <div id="btn-container">
