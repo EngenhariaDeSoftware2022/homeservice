@@ -8,43 +8,51 @@
   </mat-drawer>
   <form action="" [formGroup]="signUpForm">
     <div class="inputs-container">
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="outline">
         <mat-label>Nome Completo</mat-label>
         <input matInput type="text" formControlName="name">
+        <mat-icon matSuffix>person</mat-icon>
       </mat-form-field>
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="outline">
         <mat-label>CPF</mat-label>
         <input matInput type="text" formControlName="cpf">
+        <mat-icon matSuffix>lock</mat-icon>
       </mat-form-field>
     </div>
     <div class="inputs-container">
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="outline">
         <mat-label>Data de Nascimento</mat-label>
         <input matInput type="text" formControlName="birthDate">
+        <mat-icon matSuffix>calendar_today</mat-icon>
       </mat-form-field>
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="outline">
         <mat-label>Telefone</mat-label>
         <input matInput type="text" formControlName="tel">
+        <mat-icon matSuffix>phone</mat-icon>
       </mat-form-field>
     </div>
     <div class="inputs-container">
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="outline">
         <mat-label>Cidade</mat-label>
         <input matInput type="text" formControlName="city">
+        <mat-icon matSuffix>domain</mat-icon>
       </mat-form-field>
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="outline">
         <mat-label>Rua</mat-label>
         <input matInput type="text" formControlName="neighborhood">
+        <mat-icon matSuffix>streetview</mat-icon>
       </mat-form-field>
     </div>
     <div class="inputs-container">
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="outline">
         <mat-label>Email</mat-label>
         <input matInput type="email" formControlName="email">
+        <mat-icon matSuffix>mail_outline</mat-icon>
       </mat-form-field>
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="outline">
         <mat-label>Senha</mat-label>
         <input matInput type="password" formControlName="password">
+        <mat-icon matSuffix>vpn_key</mat-icon>
       </mat-form-field>
     </div>
 
@@ -65,13 +73,15 @@
         <button mat-raised-button class="btn-entrar" (click)="this.changeLoginExibition()">Cadastrar</button>
     </mat-drawer>
     <form action="" [formGroup]="loginForm">
-      <mat-form-field class="email" color="black">
-        <mat-label> <mat-icon class="icon-email"> email</mat-icon>Email</mat-label>
-        <input matInput placeholder="Ex. 111.111.111-11" value="" formControlName="email">
+      <mat-form-field appearance="outline" class="login-info" color="black">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Ex. joao_pedro@gmail.com" value="" formControlName="email">
+        <mat-icon matSuffix>mail_outline</mat-icon>
       </mat-form-field>
-      <mat-form-field class="password" color="black">
-        <mat-label> <mat-icon class="icon-password"> vpn_key</mat-icon> Password</mat-label>
+      <mat-form-field appearance="outline" class="login-info" color="black">
+        <mat-label>Password</mat-label>
         <input type="password" matInput placeholder="*****" value="" formControlName="password">
+        <mat-icon matSuffix>vpn_key</mat-icon>
       </mat-form-field>
       <button type="submit" [disabled]="loginForm.invalid" mat-raised-button class="btn-login" (click)="login()"
       >Entrar</button>
